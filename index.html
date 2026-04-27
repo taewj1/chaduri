@@ -3,74 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>충무새힘한의원 | 비수술 무릎·어깨 통증 치료</title>
+    <title>충무새힘한의원 | 의료진 소개</title>
     <style>
         :root {
-            --primary-color: #1a5f7a; /* 신뢰감을 주는 딥 블루 */
+            --primary-color: #1a5f7a;
             --accent-color: #c8a2c8;
             --text-color: #333;
             --bg-color: #f9f9f9;
         }
-        body { font-family: 'Pretendard', sans-serif; line-height: 1.6; color: var(--text-color); margin: 0; }
-        header { background: #fff; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; sticky: top; }
+        body { 
+            font-family: 'Pretendard', sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-color); 
+            margin: 0; 
+            padding-top: 80px; 
+        }
+        header { 
+            background: #fff; 
+            padding: 1rem 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid #eee; 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            box-sizing: border-box; 
+            z-index: 1000; 
+        }
         .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
         nav a { margin-left: 20px; text-decoration: none; color: #555; font-weight: 500; }
         
-        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('clinic_bg.jpg'); background-size: cover; color: #fff; padding: 100px 5%; text-align: center; }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 80px 20px; }
+        .profile-section { 
+            display: grid; 
+            grid-template-columns: 1fr 2fr; 
+            gap: 60px; 
+            align-items: center; 
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .profile-image-container { text-align: center; }
+        .profile-image { 
+            width: 100%; 
+            max-width: 300px;
+            border-radius: 50%; 
+            object-fit: cover; 
+            aspect-ratio: 1/1; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+        }
+        .photo-note { font-size: 0.8rem; color: #888; margin-top: 15px; }
         
-        .features { display: flex; justify-content: space-around; padding: 50px 5%; background: #fff; }
-        .feature-card { flex: 1; margin: 0 15px; padding: 30px; border: 1px solid #eee; border-radius: 10px; text-align: center; transition: transform 0.3s; }
-        .feature-card:hover { transform: translateY(-10px); border-color: var(--primary-color); }
-        .feature-card h3 { color: var(--primary-color); }
+        .profile-info h1 { color: var(--primary-color); margin-bottom: 5px; font-size: 2rem; }
+        .profile-info .title { font-size: 1.2rem; color: #666; margin-bottom: 25px; font-weight: bold; }
+        .profile-info ul { list-style: none; padding: 0; margin-bottom: 40px; }
+        .profile-info li { 
+            margin-bottom: 12px; 
+            position: relative; 
+            padding-left: 25px; 
+            font-size: 1.05rem;
+        }
+        .profile-info li::before { 
+            content: '✓'; 
+            position: absolute; 
+            left: 0; 
+            color: var(--primary-color); 
+            font-weight: bold; 
+        }
+        
+        .clinical-focus { 
+            background: var(--bg-color); 
+            padding: 25px; 
+            border-radius: 10px; 
+            border-left: 4px solid var(--primary-color);
+        }
+        .clinical-focus h3 { color: var(--primary-color); margin-top: 0; margin-bottom: 10px; }
+        .clinical-focus p { margin: 0; font-size: 1.1rem; font-weight: 500; }
 
-        .info-section { padding: 50px 5%; background: var(--bg-color); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .map-placeholder { background: #ddd; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 10px; }
-        
-        footer { background: #333; color: #fff; padding: 30px 5%; text-align: center; font-size: 0.9rem; }
+        footer { 
+            background: #333; 
+            color: #fff; 
+            padding: 30px 5%; 
+            text-align: center; 
+            font-size: 0.9rem; 
+            margin-top: 100px; 
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">충무새힘한의원</div>
         <nav>
-            <a href="#about">의료진 소개</a>
-            <a href="#treatment">특화 진료</a>
-            <a href="#location">오시는 길</a>
+            <a href="index.html">홈</a>
+            <a href="#about" style="color: var(--primary-color); font-weight: bold;">의료진 소개</a>
+            <a href="treatment.html">특화 진료</a>
+            <a href="location.html">오시는 길</a>
         </nav>
     </header>
 
-    <section class="hero">
-        <h1>통증의 원인을 분석하고<br>움직임의 힘을 되찾아드립니다</h1>
-        <p>부산 자갈치역, 비수술 관절 치료의 새로운 기준</p>
-    </section>
-
-    <section id="treatment" class="features">
-        <div class="feature-card">
-            <h3>무릎·어깨 정밀 진단</h3>
-            <p>RMSK(근골격계 초음파) 자격 보유 원장의<br>정교한 초음파 진단</p>
-        </div>
-        <div class="feature-card">
-            <h3>생체역학적 치료</h3>
-            <p>단순 통증 완화를 넘어<br>관절의 움직임을 바로잡는 치료</p>
-        </div>
-        <div class="feature-card">
-            <h3>비수술 집중 케어</h3>
-            <p>침, 약침, 추나 요법을 활용한<br>체계적인 비수술적 접근</p>
-        </div>
-    </section>
-
-    <section id="location" class="info-section">
-        <div>
-            <h2>진료 시간 및 위치</h2>
-            <p><b>주소:</b> 부산광역시 서구 구덕로 (자갈치역 인근)</p>
-            <p><b>진료 시간:</b> 평일 오전 9:30 ~ 오후 7:00 / 토요일 진료</p>
-            <p><b>문의:</b> 블로그 및 플레이스 예약 가능</p>
-        </div>
-        <div class="map-placeholder">
-            지도 영역 (네이버 지도 API 연동 가능)
-        </div>
-    </section>
+    <div class="container">
+        <section id="about" class="profile-section">
+            <div class="profile-image-container">
+                <img src="doctor_photo_temp.jpg" alt="태원정 원장님" class="profile-image">
+                <p class="photo-note">* 임시 사진 (추후 공식 프로필 사진 교체 예정)</p>
+            </div>
+            <div class="profile-info">
+                <h1>태원정</h1>
+                <p class="title">진료원장</p>
+                <ul>
+                    <li>대전대학교 한의학과 졸</li>
+                    <li>척추신경추나의학회 회원</li>
+                    <li>북미 RMSKS sonographer</li>
+                    <li>대한 스포츠 한의학회 회원</li>
+                    <li>임상의학침학회 회원</li>
+                </ul>
+                <div class="clinical-focus">
+                    <h3>핵심 진료 분야</h3>
+                    <p>만성 퇴행성 질환, 급성기 파열, 비수술 강화</p>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <footer>
         <p>&copy; 2026 충무새힘한의원. All rights reserved.</p>
