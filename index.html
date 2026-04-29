@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>충무새힘한의원 | 비수술 무릎·어깨 통증 치료</title>
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=3epid20kqo"></script>
     <style>
         :root {
             --primary-color: #1a5f7a;
@@ -25,7 +26,8 @@
         .feature-card h3 { color: var(--primary-color); }
 
         .info-section { padding: 50px 5%; background: var(--bg-color); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .map-placeholder { background: #ddd; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 10px; }
+        /* 지도 컨테이너 스타일 수정 */
+        #map { width: 100%; height: 300px; border-radius: 10px; border: 1px solid #ddd; }
         
         footer { background: #333; color: #fff; padding: 30px 5%; text-align: center; font-size: 0.9rem; }
     </style>
@@ -67,13 +69,43 @@
             <p><b>진료 시간:</b> 평일 오전 9:30 ~ 오후 7:00 / 토요일 진료</p>
             <p><b>문의:</b> 블로그 및 플레이스 예약 가능</p>
         </div>
-        <div class="map-placeholder">
-            지도 영역 (네이버 지도 API 연동 가능)
-        </div>
+        <div id="map"></div>
     </section>
 
     <footer>
         <p>&copy; 2026 충무새힘한의원. All rights reserved.</p>
     </footer>
+
+    <script>
+        // 한의원의 정확한 위도(lat)와 경도(lng) 좌표
+        var clinicLocation = new naver.maps.LatLng(35.0962440, 129.0240053);
+
+        // 지도 옵션 설정 (초기 중심 위치, 확대 레벨 지정)
+        var mapOptions = {
+            center: clinicLocation,
+            zoom: 16, // 확대 레벨 (숫자가 클수록 확대)
+            minZoom: 10,
+            zoomControl: true, // 줌 컨트롤 표시
+            zoomControlOptions: {
+                position: naver.maps.Position.TOP_RIGHT
+            }
+        };
+
+        // id="map"인 div에 지도를 생성
+        var map = new naver.maps.Map('map', mapOptions);
+
+        // 해당 좌표에 마커 생성
+        var marker = new naver.maps.Marker({
+            position: clinicLocation,
+            map: map,
+            title: '충무새힘한의원'
+        });
+        
+        // 정보창 (마커 클릭 또는 기본 노출용, 원치 않으시면 삭제 가능)
+        var infoWindow = new naver.maps.InfoWindow({
+            content: '<div style="width:150px;text-align:center;padding:10px;"><b>충무새힘한의원</b></div>'
+        });
+        infoWindow.open(map, marker);
+    </script>
 </body>
 </html>
